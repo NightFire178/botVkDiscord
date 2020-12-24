@@ -5,6 +5,16 @@ const fs = require('fs')
 const discord = require('discord.js')
 const fetch = require('node-fetch');
 
+//CONFIG
+const
+	VKID = 629079580,
+	DISCORDKEY = 'NDk5MTY2MzM0MzM3NDE3MjE2.W7yC4A.e27VppenkVyt_JnimhFYfryZpfU',
+	USERNAME = '+79153443992',
+	PASSWORD = 'Qwertyui1r',
+	IDBES = 1,
+	DISCORDCHANEL = 'vk-discord',
+	IDDISCORDSERVER='365478251549687808';
+
 //CLASS
 const Hero = require('./class/LOLHero');
 
@@ -61,15 +71,15 @@ function command(cm) {
 	}
 	rsp = cm.split(' ');
 	switch (rsp[0]) {
-		case '/герой': helpHero(h.getByName(rsp[1]))
+		case '!герой': helpHero(h.getByName(rsp[1]))
 			break;
-		case '/rh': helpHero(h.getRandomHero(), true)
+		case '!rh': helpHero(h.getRandomHero(), true)
 			break;
-		case '/rhs': helpHero(h.getRandomHero())
+		case '!rhs': helpHero(h.getRandomHero())
 			break;
-		case '/roll': sendAll(Math.floor(Math.random()*100))
+		case '!roll': sendAll(Math.floor(Math.random()*100))
 			break;
-		case '/help':
+		case '!help':
 		default: sendAll('/roll выкидывает число от 0 до 100 \n /герой ИМЯ выводит статы героя \n /rh выводит имя одного из всех героев \n /rhs выводит имя со статой \n /help выводит список команд')
 			break;
 	}
@@ -78,15 +88,8 @@ function command(cm) {
 
 
 /* heroEditResponse(h.getRandomHero()) */
-//CONFIG
-const
-	VKID = 629079580,
-	DISCORDKEY = 'NDk5MTY2MzM0MzM3NDE3MjE2.W7yC4A.LQ50P6RTeWGUfH6mkwS7gO9Sx_M',
-	USERNAME = '+79153443992',
-	PASSWORD = 'Qwertyui1r',
-	IDBES = 1,
-	DISCORDCHANEL = 'vk-discord',
-	IDDISCORDSERVER='365478251549687808';
+
+
 
 
 //DISCORD
@@ -109,7 +112,7 @@ bot.on('ready', () => {
 bot.on('message', async msg => {
 	if (msg.channel.name == DISCORDCHANEL && msg.author.username == 'Николай') {
 		sendVKmassage(msg.guild.members.cache.get(msg.author.id).nickname + '\n' + msg.content)
-		if (msg.content[0] == '/') command(msg.content)
+		if (msg.content[0] == '!') command(msg.content)
 	}
 })
 
@@ -148,7 +151,7 @@ easyvk({
 			if (res[3] == '200000000' + IDBES && res[6].from != VKID) {
 				let user = await vk.call('users.get', { user_ids: res[6].from })
 				sendDiscordMassge(user[0].first_name + ' ' + user[0].last_name + '\n' + res[5])
-				if (res[5][0] == '/') command(res[5])
+				if (res[5][0] == '!') command(res[5])
 			}
 		});
 	})
