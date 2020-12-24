@@ -1,0 +1,16 @@
+{
+  "name": "fastapivkdiscord",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "st": "node index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "discord.js": "^12.5.1",
+    "easyvk": "^2.8.2",
+    "node-fetch": "^2.6.1"
+  }
+}
