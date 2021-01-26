@@ -8,12 +8,12 @@ const fetch = require('node-fetch');
 //CONFIG
 const
 	VKID = 629079580,
-	DISCORDKEY = 'NDk5MTY2MzM0MzM3NDE3MjE2.W7yC4A.e27VppenkVyt_JnimhFYfryZpfU',
-	USERNAME = '+79153443992',
-	PASSWORD = 'Qwertyui1r',
+	DISCORDKEY = '',
+	USERNAME = '',
+	PASSWORD = '',
 	IDBES = 1,
 	DISCORDCHANEL = 'vk-discord',
-	IDDISCORDSERVER='365478251549687808';
+	IDDISCORDSERVER='';
 
 //CLASS
 const Hero = require('./class/LOLHero');
